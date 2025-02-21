@@ -18,12 +18,31 @@ function startTimer() {
     var el = document.getElementById('timer');
 
     function incrementSeconds() {
-        if (seconds = 59) {
-            minutes -= 1
+        if (seconds == 59) {
+            minutes -= 1;
         }
         seconds -= 1;
+        if (seconds >= 10) {
+            if (seconds == -1) {
+                el.innerText = "Timer " + minutes + ":59" + seconds;
+                console.log("enters at minus one")
+            }
+            else {
+                el.innerText = "Timer " + minutes + ":" + seconds;
+                console.log(seconds)
+            }
+
+        }
         // el.innerText = "Timer " + minutes + ":" + seconds;
-        el.innerText = "Timer " + minutes + ":" + seconds;
+        else if (seconds < 10) {
+            el.innerText = "Timer " + minutes + ":0" + seconds;
+            console.log(seconds)
+        }
+
+        if (seconds == 0) {
+            seconds = 60;
+        }
+
     }
 
     var cancel = setInterval(incrementSeconds, 1000);
