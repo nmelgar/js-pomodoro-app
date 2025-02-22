@@ -18,14 +18,25 @@
                 <p>Current time: </p>
                 <p id="clock"></p>
             </div>
+            <!-- input dropdown for time selection -->
+            <div id="time-selection-container">
+                <select name="minutes" id="minutes">
+                    <option value="five-minutes">05:00</option>
+                    <option value="fifteen-minutes">15:00</option>
+                    <option value="twentyfive-minutes">25:00</option>
+                </select>
+            </div>
+            <!-- contains the timer itself -->
             <div id="time-container">
-                <!-- contains the timer itself -->
                 <p id="timer">
-                    Timer 25:00 seconds.
+                    00:00
                 </p>
             </div>
-            <div id="start-button-container">
+            <!-- container the buttion to start the counter -->
+            <div id="action-buttons-container">
                 <button id="start" onclick="startTimer()">Start</button>
+                <button id="stop" onclick="stopTimer()">Stop</button>
+
             </div>
         </div>
     </div>
