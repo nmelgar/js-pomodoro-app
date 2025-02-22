@@ -10,22 +10,23 @@ function myTimer() {
 }
 
 function startTimer() {
-    var seconds = 1500;
+    var seconds = 60;
     var minutes = seconds / 60
     var seconds = 60
 
 
     var el = document.getElementById('timer');
 
-    function incrementSeconds() {
+    function decrementSeconds() {
+        seconds -= 1;
         if (seconds == 59) {
             minutes -= 1;
         }
-        seconds -= 1;
+
         if (seconds >= 10) {
             if (seconds == -1) {
                 el.innerText = "Timer " + minutes + ":59" + seconds;
-                console.log("enters at minus one")
+                // console.log("enters at minus one")
             }
             else {
                 el.innerText = "Timer " + minutes + ":" + seconds;
@@ -36,7 +37,7 @@ function startTimer() {
         // el.innerText = "Timer " + minutes + ":" + seconds;
         else if (seconds < 10) {
             el.innerText = "Timer " + minutes + ":0" + seconds;
-            console.log(seconds)
+            // console.log(seconds)
         }
 
         if (seconds == 0) {
@@ -45,5 +46,5 @@ function startTimer() {
 
     }
 
-    var cancel = setInterval(incrementSeconds, 1000);
+    setInterval(decrementSeconds, 1000);
 }
