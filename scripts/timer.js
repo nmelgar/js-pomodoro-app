@@ -24,6 +24,7 @@ function selectTime() {
 }
 
 function startTimer() {
+    // this function will start the timer
     let timeInSeconds = selectTime();
     let minutes = Math.floor(timeInSeconds / 60);
     let seconds = timeInSeconds % 60;
@@ -48,6 +49,7 @@ function startTimer() {
 }
 
 function stopTimer() {
+    // this function will stop the timer and reset the time to 00:00
     clearInterval(timerInterval);
     const timeText = document.getElementById('timer');
     timeText.innerText = "00:00";
