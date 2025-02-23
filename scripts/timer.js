@@ -20,6 +20,8 @@ function selectTime() {
         return 900;
     } else if (timeValue === "twentyfive-minutes") {
         return 1500;
+    } else if (timeValue === "one-minute") {
+        return 60;
     }
 }
 
@@ -34,6 +36,7 @@ function startTimer() {
         if (timeInSeconds <= 0) {
             clearInterval(timerInterval);
             timeText.innerText = "00:00";
+            onTimerEnd();
             return;
         }
 
@@ -53,4 +56,8 @@ function stopTimer() {
     clearInterval(timerInterval);
     const timeText = document.getElementById('timer');
     timeText.innerText = "00:00";
+}
+
+function onTimerEnd() {
+    alert("Time's up!");
 }
