@@ -6,12 +6,11 @@ This application implements the Pomodoro Technique, a time management method tha
 
 * Start and stop functionality for both work and break intervals.
 * Customizable interval lengths to suit individual preferences.
-* Tracking of completed work and break sessions.
-* Notifications to signal the start and end of intervals, ensuring users stay on track.
+* Alerts to signal the start and end of intervals, ensuring users stay on track.
 
 My primary purpose in creating this software is to deepen my understanding of JavaScript's capabilities in building interactive web applications, focusing on time management and user interface development.
 
-[Software Demo Video](http://www.youtube.com)
+[Software Demo Video](https://youtu.be/34Q4ay_U2q8)
 
 # Development Environment
 

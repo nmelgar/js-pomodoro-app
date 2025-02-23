@@ -59,5 +59,6 @@ function stopTimer() {
 }
 
 function onTimerEnd() {
+    // display an alert when time comes to 00:00
     alert("Time's up!");
 }
