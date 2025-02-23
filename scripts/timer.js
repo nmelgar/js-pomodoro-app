@@ -1,4 +1,6 @@
 // include function for timer logic, function to start, stop, pause, restart and update the timer
+let timerInterval;
+
 function myTimer() {
     // function to display current time
     const d = new Date();
@@ -21,51 +23,32 @@ function selectTime() {
     }
 }
 
+function startTimer() {
+    let timeInSeconds = selectTime();
+    let minutes = Math.floor(timeInSeconds / 60);
+    let seconds = timeInSeconds % 60;
+    const timeText = document.getElementById('timer');
 
-function getTimeInSeconds(timeInSeconds) {
-    // function to get desired times in seconds to convert in minutes
-    // get the time in seconds based on user's input
-    timeInSeconds = selectTime()
-    var minutes = timeInSeconds / 60
-    return minutes
-
-}
-
-function startTimer(minutes) {
-    // get the minutes
-    minutes = getTimeInSeconds();
-
-    // use seconds
-    var seconds = 60
-    var timeText = document.getElementById('timer');
-
-    function decrementSeconds() {
-        seconds -= 1;
-        if (seconds == 59) {
-            minutes -= 1;
+    function updateTimer() {
+        if (timeInSeconds <= 0) {
+            clearInterval(timerInterval);
+            timeText.innerText = "00:00";
+            return;
         }
 
-        if (seconds >= 10) {
-            if (seconds == -1) {
-                timeText.innerText = minutes + ":59" + seconds;
-                // console.log("enters at minus one")
-            }
-            else {
-                timeText.innerText = minutes + ":" + seconds;
-                console.log(seconds)
-            }
+        minutes = Math.floor(timeInSeconds / 60);
+        seconds = timeInSeconds % 60;
 
-        }
-        // el.innerText = "Timer " + minutes + ":" + seconds;
-        else if (seconds < 10) {
-            timeText.innerText = minutes + ":0" + seconds;
-            // console.log(seconds)
-        }
-
-        if (seconds == 0) {
-            seconds = 60;
-        }
+        timeText.innerText = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        timeInSeconds--;
     }
 
-    setInterval(decrementSeconds, 1000);
+    updateTimer();
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    const timeText = document.getElementById('timer');
+    timeText.innerText = "00:00";
 }
